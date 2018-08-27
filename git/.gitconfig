@@ -1,0 +1,15 @@
+[user]
+  name = Micha Waterböhr
+  email = micha.waterboehr@gmail.com
+
+[core]
+  excludesfile = ~/.gitignore_global
+  editor = vim
+  autocrlf = input
+
+[alias]
+  amend = commit --amend --reuse-message=HEAD
+  permission-reset = "!git diff -p | grep -E \"^(diff|old mode|new mode)\" | sed -e \"s/^old/NEW/;s/^new/old/;s/^NEW/new/\" | git apply"
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/
