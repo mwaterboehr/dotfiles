@@ -27,10 +27,6 @@ defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 # Enable autohide for the Dock
 defaults write com.apple.dock autohide -bool
 
-# Set up screensaver for top left corner
-defaults write com.apple.dock wvous-br-corner -int 2
-defaults write com.apple.dock wvous-br-modifier -int 0
-
 # Wipe all persistent (default) app icons from the Dock
 defaults write com.apple.dock persistent-apps -array
 

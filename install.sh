@@ -18,19 +18,42 @@ echo "###############################"
 echo "# Install software            #"
 echo "###############################"
 
+# Setup private ssh key
+mkdir ~/.ssh
+
 # Install Homebrew
 is_installed brew || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew analytics off
 
 brew install git-crypt
 brew install zsh-syntax-highlighting
-brew install magic-wormhole
-brew tap caskroom/cask
+brew install kubernetes-cli
+brew install awscli
+brew install jq
+brew install jsonnet
+brew install aws-vault
+brew install composer
+
+brew install tfenv
+# https://medium.com/@immanoj42/terraform-template-v2-2-0-does-not-have-a-package-available-mac-m1-m2-2b12c6281ea
+brew install kreuzwerker/taps/m1-terraform-provider-helper
+m1-terraform-provider-helper activate # (In case you have not activated the helper)
+m1-terraform-provider-helper install  hashicorp/template 2.10.0 # Install and compile
+
+# Setup npm
+touch ~/.npmrc
+
+# Configure: https://github.com/finanzcheck/terraform-provider-spinnaker
+# $ mkdir ~/.spin
+# $ vim ~/.spin/config # paste content from above repository readme
 
 # Install Apps
-brew cask install dropbox
-brew cask install iterm2
-brew cask install spectacle
-brew cask install phpstorm
-brew cask install whatsapp
-brew cask install sequel-pro
+brew install --cask atom
+brew install --cask slack
+brew install --cask dropbox
+brew install --cask iterm2
+brew install --cask rectangle
+brew install --cask phpstorm
+brew install --cask whatsapp
+brew install --cask sequel-ace
+brew install --cask postman
